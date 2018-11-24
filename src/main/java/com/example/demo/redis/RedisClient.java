@@ -92,8 +92,8 @@ public class RedisClient {
 		SetOperate();
 		SortedSetOperate();
 		HashOperate();
-		jedisPool.returnResource(jedis);
-		shardedJedisPool.returnResource(shardedJedis);
+//		jedisPool.returnResource(jedis);
+//		shardedJedisPool.returnResource(shardedJedis);
 	}
 	
 	
