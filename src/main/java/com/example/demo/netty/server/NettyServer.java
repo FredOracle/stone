@@ -61,7 +61,7 @@ public class NettyServer {
 			serverBootstrap.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
 
 			// 自动调整下一次缓冲区建立时分配的空间大小，避免内存的浪费
-			serverBootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, AdaptiveRecvByteBufAllocator.DEFAULT);
+//			serverBootstrap.option(ChannelOption.RCVBUF_ALLOCATOR, AdaptiveRecvByteBufAllocator.DEFAULT);
 
 			// 当服务器请求处理线程全满时，用于临时存放已完成三次握手的请求的队列的最大长度,默认值50。
 			serverBootstrap.option(ChannelOption.SO_BACKLOG, 1024);

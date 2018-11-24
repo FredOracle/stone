@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import com.example.demo.mongodb.MongoClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -43,18 +44,19 @@ public class SystemRestController {
 	@Resource
 	private DemoBusiness demoBusiness;
 
-//	@Resource
-//	private RedisClient client;
+	@Resource
+	private RedisClient client;
 
 //	@Resource
 //	private RedisTemplate<String, String> template;
 	
 	
+//	@Resource
+//	private RedisUtil util;
+	
+	
 	@Resource
-	private RedisUtil util;
-	
-	
-	
+    private MongoClient mongoClient;
 
 	@ApiOperation(value = "query entity", notes = "no input parameters")
 	@RequestMapping(value = "msg", method = RequestMethod.GET)
@@ -71,18 +73,18 @@ public class SystemRestController {
 		UpdatedEvent updated = new UpdatedEvent(this, bean.getUsername() + "Updated");
 		publisher.updatedPush(updated);
 
-//		Boolean hasKey = client.hasKey("hello");
-//		log.info("============Has Key  " + hasKey);
-//
-//		client.saveKey("good", "huxm");
-//
-//		log.info(".............." + client.getKey("good"));
+		Boolean hasKey = client.hasKey("hello");
+		log.info("============Has Key  " + hasKey);
+		client.saveKey("good", bean.getUsername());
+		log.info(".............." + client.getKey("good"));
 
-		util.setValue("good", "Fred");
-		log.info(">>>>>>>>>>>>>>>>>" + util.hasKey("good"));
-		log.info(">>>>>>>>>>>>>>>>>" + util.getValue("good"));
-		
-		
+//		util.setValue("good", "Fred");
+//		log.info(">>>>>>>>>>>>>>>>>" + util.hasKey("good"));
+//		log.info(">>>>>>>>>>>>>>>>>" + util.getValue("good"));
+
+
+        mongoClient.save(bean.getId(),bean.getUsername());
+
 		return ResponseEntity.ok().body(DemoResponse.builder().msg("Hello Fred  【" + bean.getUsername() + "】").build());
 	}
 
