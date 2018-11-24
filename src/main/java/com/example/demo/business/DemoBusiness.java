@@ -13,7 +13,7 @@ public class DemoBusiness {
 	@Resource
 	private DemoRepository repository;
 	
-	public Integer insert(Demo bean){
+	public String insert(Demo bean){
 		repository.save(bean);
 		return bean.getId();
 	}
