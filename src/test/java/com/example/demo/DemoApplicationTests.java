@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -15,10 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 public class DemoApplicationTests {
 
 	public void contextLoads() {
-		
-	
-		
-		
 		System.out.println("11111111111111");
 		ConcurrentLinkedQueue q = null;
 		
@@ -37,7 +31,7 @@ public class DemoApplicationTests {
 	
 	@Test
 	public void testClear(){
-		ArrayList list = new ArrayList<String>();
+		ArrayList<String> list = new ArrayList<>();
 		System.out.println(list.size());
 		list.add("a");
 		list.add("a");
@@ -46,5 +40,6 @@ public class DemoApplicationTests {
 		list.clear();
 		System.out.println(list.size());
 	}
+	
 
 }

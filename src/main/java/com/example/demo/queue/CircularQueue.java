@@ -9,6 +9,7 @@ public class CircularQueue {
 
 	//队头
 	private int front = 0;
+	
 
 	//队尾
 	private int rear = 0;

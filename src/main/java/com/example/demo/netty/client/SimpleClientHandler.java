@@ -9,14 +9,11 @@ public class SimpleClientHandler extends ChannelInboundHandlerAdapter {
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception{
 		System.out.println("=================SimpleClientHandler.channelRead========================");
-		
-		
 		ByteBuf resultBuf = (ByteBuf)msg;
 		byte[] result = new byte[resultBuf.readableBytes()];
 
 		resultBuf.readBytes(result);
 		System.out.println("Message from Server: " + new String(result));
-		
 		resultBuf.release();
 	}
 	

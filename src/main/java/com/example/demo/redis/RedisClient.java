@@ -19,7 +19,7 @@ import redis.clients.jedis.SortingParams;
 public class RedisClient {
 
 	// Redis服务器IP
-	private static String ADDR = "192.168.86.133";
+	private static String ADDR = "192.168.86.136";
 
 	// Redis的端口号
 	private static int PORT = 6379;
