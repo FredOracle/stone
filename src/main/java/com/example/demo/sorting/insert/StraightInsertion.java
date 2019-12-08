@@ -27,7 +27,6 @@ public class StraightInsertion {
 	}
 
 	public static void main(String[] args) {
-		
 		SortingUtils.print(SortingUtils.arr);
 		Integer[] result = StraightInsertion.sort(SortingUtils.arr);
 		SortingUtils.print(result);
