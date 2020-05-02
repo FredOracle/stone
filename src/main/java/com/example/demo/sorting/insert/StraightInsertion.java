@@ -2,6 +2,11 @@ package com.example.demo.sorting.insert;
 
 import com.example.demo.sorting.SortingUtils;
 
+/**
+ * 
+ * @author Fred
+ *
+ */
 public class StraightInsertion {
 
 	public static Integer[] sort(Integer[] toSortArr) {

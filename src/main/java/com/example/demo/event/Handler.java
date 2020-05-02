@@ -10,13 +10,9 @@ public abstract class Handler implements EventListener {
 		this.valueString =  valueString;
 	}
 	
-	
 	public String getValueString() {
 		return valueString;
 	}
-
-
-
 
 	public void setValueString(String valueString) {
 		this.valueString = valueString;
