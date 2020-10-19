@@ -1,7 +1,5 @@
 package com.example.demo.netty.client;
 
-import java.io.RandomAccessFile;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import io.netty.buffer.ByteBuf;
@@ -36,7 +34,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 	@Override
 	protected void channelRead0(ChannelHandlerContext arg0, ByteBuf msg) throws Exception {
 		System.out.println("=================SimpleClientHandler.channelRead========================");
-		RandomAccessFile i;
+
 		ByteBuf resultBuf = (ByteBuf) msg;
 		byte[] result = new byte[resultBuf.readableBytes()];
 

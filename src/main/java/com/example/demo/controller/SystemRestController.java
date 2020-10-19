@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import com.example.demo.mongodb.MongoClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -15,14 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.bean.Demo;
 import com.example.demo.bean.DemoResponse;
 import com.example.demo.business.DemoBusiness;
-import com.example.demo.business.EventLogBusiness;
 import com.example.demo.event.spring.CreatedEvent;
 import com.example.demo.event.spring.EventPublisher;
 import com.example.demo.event.spring.UpdatedEvent;
-import com.example.demo.mongodb.MongoClient;
 import com.example.demo.rabbitmq.RabbitReceiver;
 import com.example.demo.redis.RedisClient;
-import com.example.demo.util.MessageLogBuilder;
+import com.example.demo.redis.RedisUtil;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -46,28 +45,18 @@ public class SystemRestController {
 	private DemoBusiness demoBusiness;
 
 	@Resource
-	private EventLogBusiness eventLogBusiness;
-
-	@Resource
 	private RedisClient client;
 
-	// @Resource
-	// private RedisTemplate<String, String> template;
-
-	// @Resource
-	// private RedisUtil util;
-
+//	@Resource
+//	private RedisTemplate<String, String> template;
+	
+	
+//	@Resource
+//	private RedisUtil util;
+	
+	
 	@Resource
-	private MongoClient mongoClient;
-
-	@RequestMapping(value = "logs", method = RequestMethod.GET)
-	public String insertLog() {
-		MessageLogBuilder builder = new MessageLogBuilder();
-		for (int i = 0; i < 10000; i++) {
-			eventLogBusiness.save(builder.build());
-		}
-		return "Success";
-	}
+    private MongoClient mongoClient;
 
 	@ApiOperation(value = "query entity", notes = "no input parameters")
 	@RequestMapping(value = "msg", method = RequestMethod.GET)
@@ -89,11 +78,12 @@ public class SystemRestController {
 		client.saveKey("good", bean.getUsername());
 		log.info(".............." + client.getKey("good"));
 
-		// util.setValue("good", "Fred");
-		// log.info(">>>>>>>>>>>>>>>>>" + util.hasKey("good"));
-		// log.info(">>>>>>>>>>>>>>>>>" + util.getValue("good"));
+//		util.setValue("good", "Fred");
+//		log.info(">>>>>>>>>>>>>>>>>" + util.hasKey("good"));
+//		log.info(">>>>>>>>>>>>>>>>>" + util.getValue("good"));
 
-		mongoClient.save(bean.getId(), bean.getUsername());
+
+        mongoClient.save(bean.getId(),bean.getUsername());
 
 		return ResponseEntity.ok().body(DemoResponse.builder().msg("Hello Fred  【" + bean.getUsername() + "】").build());
 	}
@@ -107,10 +97,13 @@ public class SystemRestController {
 	public String create(@RequestParam(value = "username", required = true) String username,
 			@RequestParam(value = "password", required = true) String password,
 			@RequestParam(value = "age", required = false) Integer age,
-
-			@RequestHeader("Authorization") String authorization, @RequestHeader("User-Agent") String userAgent,
-			@RequestHeader("Accept") String acceptType, @RequestHeader("Accept-Language") String acceptLang,
-			@RequestHeader("Accept-Encoding") String acceptEnc, @RequestHeader("Cache-Control") String cacheCon,
+			
+			@RequestHeader("Authorization") String authorization, 
+			@RequestHeader("User-Agent") String userAgent,
+			@RequestHeader("Accept") String acceptType, 
+			@RequestHeader("Accept-Language") String acceptLang,
+			@RequestHeader("Accept-Encoding") String acceptEnc, 
+			@RequestHeader("Cache-Control") String cacheCon,
 			@RequestHeader("Cookie") String cookie) {
 		Demo bean = Demo.builder().username(UUID.randomUUID().toString()).password(UUID.randomUUID().toString())
 				.build();

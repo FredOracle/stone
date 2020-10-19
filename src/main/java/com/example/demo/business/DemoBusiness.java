@@ -17,7 +17,7 @@ public class DemoBusiness {
 		return bean.getId();
 	}
 
-	
+
 //	public List<Demo> getAll(){
 //		return Collections.list(repository.findAll());
 //	}
