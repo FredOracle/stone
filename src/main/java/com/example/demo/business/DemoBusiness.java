@@ -8,15 +8,15 @@ import com.example.demo.repository.DemoRepository;
 
 @Service
 public class DemoBusiness {
-	
-	@Resource
-	private DemoRepository repository;
-	
-	public String insert(Demo bean){
-		repository.save(bean);
-		return bean.getId();
-	}
 
+  @Resource
+  private DemoRepository repository;
+
+  public String insert(Demo bean) {
+    Demo entity = bean;
+    repository.save(entity);
+    return entity.getId();
+  }
 
 //	public List<Demo> getAll(){
 //		return Collections.list(repository.findAll());

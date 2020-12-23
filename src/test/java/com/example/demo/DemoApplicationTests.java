@@ -2,20 +2,13 @@ package com.example.demo;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Properties;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.google.gson.Gson;
-import com.sun.media.jfxmedia.logging.Logger;
-
-import jdk.nashorn.internal.parser.JSONParser;
 import org.junit.Test;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 public class DemoApplicationTests {
     String json = "[" +
             " 'title':'Links'," +
@@ -84,7 +77,6 @@ public class DemoApplicationTests {
         queue.add("5");
         queue.add("6");
 
-        log.info("" + queue.poll());
     }
 
 

@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class EventPublisher {
 
-	@Resource
-	private ApplicationContext applicationContext;
-	
-	public void createdPush(CreatedEvent event){
-		applicationContext.publishEvent(event);
-	}
-	
-	public void updatedPush(UpdatedEvent event){
-		applicationContext.publishEvent(event);
-	}
+  @Resource
+  private ApplicationContext applicationContext;
+
+  public void createdPush(CreatedEvent event) {
+    applicationContext.publishEvent(event);
+  }
+
+  public void updatedPush(UpdatedEvent event) {
+    applicationContext.publishEvent(event);
+  }
 }

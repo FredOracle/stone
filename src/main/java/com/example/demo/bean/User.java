@@ -12,17 +12,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import lombok.Builder;
 import lombok.Data;
-import scala.reflect.internal.Trees.New;
 
 @Data
 @Builder
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {/**
 	 * 
 	 */
