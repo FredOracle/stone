@@ -6,6 +6,7 @@ import com.example.demo.business.DemoBusiness;
 import com.example.demo.event.spring.CreatedEvent;
 import com.example.demo.event.spring.EventPublisher;
 import com.example.demo.event.spring.UpdatedEvent;
+import com.example.demo.memcached.MemcachedClient;
 import com.example.demo.mongodb.MongoClient;
 import com.example.demo.rabbitmq.RabbitReceiver;
 import com.example.demo.redis.RedisClient;
@@ -58,6 +59,9 @@ public class SystemRestController {
 
   @Resource
   private MongoClient mongoClient;
+
+  @Resource
+  private MemcachedClient memcachedClient;
 
   /**
    * Msg response entity.

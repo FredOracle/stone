@@ -8,12 +8,12 @@ import javax.annotation.Resource;
 @Component
 public class MongoClient {
 
-    @Resource
-    private MongoTemplate mongoTemplate;
+  @Resource
+  private MongoTemplate mongoTemplate;
 
-    public String save(String key, String value){
-        mongoTemplate.save(value);
-        return value;
-    }
+  public String save(String key, String value) {
+    mongoTemplate.save(value);
+    return value;
+  }
 
 }

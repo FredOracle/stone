@@ -11,12 +11,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @Controller
 public class SystemController {
-	 
-	@RequestMapping(value="/weblcome", method=RequestMethod.GET)
-	public String welcome(){
-		System.out.println("===============");
-		return "welcome";
-	}
-	
-	
+
+  @RequestMapping(value = "/weblcome", method = RequestMethod.GET)
+  public String welcome() {
+    System.out.println("===============");
+    return "welcome";
+  }
+
+
 }
