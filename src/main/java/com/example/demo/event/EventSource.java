@@ -3,6 +3,9 @@ package com.example.demo.event;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+/**
+ * @author Fred
+ */
 public class EventSource {
 	
 	private Set<Handler> eventListeners;

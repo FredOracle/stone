@@ -1,11 +1,15 @@
 package com.example.demo.thread;
 
 import io.netty.util.concurrent.DefaultThreadFactory;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor.AbortPolicy;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The type Cutdown latch.
@@ -20,7 +24,8 @@ public class CutdownLatch {
   private static CountDownLatch end = new CountDownLatch(RUNNER_COUNT);
   ThreadFactory factory = new DefaultThreadFactory("poolName", true, Thread.MIN_PRIORITY, null);
 
-  private static ExecutorService exec = Executors.newFixedThreadPool(20);
+  private static ExecutorService exec = new ThreadPoolExecutor(3, 10, 1000, TimeUnit.MICROSECONDS,
+      new ArrayBlockingQueue<>(10), Executors.defaultThreadFactory(), new AbortPolicy());
 
 //  private static ThreadPoolExecutor =
 
@@ -35,9 +40,9 @@ public class CutdownLatch {
 
     ClassLoader a = null;
     /**
-     * 创建 3 个线程去执行事件
+     * 创建 3 个线程去执行事件 胡
      */
-    System.out.println("比赛开始 ...");
+    System.out.println("Game Start ...");
 
     for (int i = 0; i < RUNNER_COUNT; i++) {
       final int NO = i + 1;
@@ -45,7 +50,7 @@ public class CutdownLatch {
     }
     begin.countDown();
     end.await();
-    System.out.println("比赛结束 ...");
+    System.out.println("GameOver ...");
     exec.shutdown();
 
 //    new Thread(() -> {
