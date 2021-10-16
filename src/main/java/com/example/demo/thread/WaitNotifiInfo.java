@@ -15,6 +15,9 @@ public class WaitNotifiInfo {
 
   public static void main(String[] args) throws InterruptedException {
 
+    new Thread(() -> System.out.println("========")).start();
+
+
     Thread waitThread = new Thread(new Wait(), "waitThread=========");
     waitThread.start();
 

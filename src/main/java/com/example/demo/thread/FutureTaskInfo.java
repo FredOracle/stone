@@ -1,6 +1,5 @@
 package com.example.demo.thread;
 
-import com.mysql.jdbc.TimeUtil;
 import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Callable;

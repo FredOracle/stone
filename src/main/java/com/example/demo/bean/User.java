@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -25,6 +26,7 @@ import lombok.Data;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "T_USER")
 public class User implements Serializable {/**
 	 * 
 	 */

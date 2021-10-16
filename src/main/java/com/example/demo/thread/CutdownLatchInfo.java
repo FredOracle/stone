@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * The type Cutdown latch.
  */
-public class CutdownLatch {
+public class CutdownLatchInfo {
 
   /**
    * 初始化需要等待的 3 个事件<p/>

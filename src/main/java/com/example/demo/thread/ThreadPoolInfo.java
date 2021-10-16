@@ -21,15 +21,17 @@ public class ThreadPoolInfo {
 
     //直接提交队列
     //    synchronousQueue();
-//
+
+
       //有界的任务队列
-//    arrayBlockingQueue();
-//
+    arrayBlockingQueue();
+
+
       //无界的任务队列
 //    linkedBlockingDeque();
 
     //优先任务队列
-    priorityBlockingQueue();
+//    priorityBlockingQueue();
 
   }
 

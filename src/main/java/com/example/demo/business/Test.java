@@ -51,6 +51,8 @@ public class Test {
 		myClass.changeValue(i);
 		System.out.println(i);
 
+		myClass.changeString(stringBuffer);
+		System.out.println(stringBuffer.toString());
 	}
 
 }
@@ -59,5 +61,9 @@ class MyClass {
 	void changeValue( Integer value) {
 		value = 3;
 		value= value + 10;
+	}
+
+	void changeString(StringBuffer value) {
+		value.append("ab");
 	}
 }
